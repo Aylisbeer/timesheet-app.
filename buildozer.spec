@@ -1,49 +1,55 @@
 [app]
-# Name of your app
-title = Timesheet App
 
-# Package name (must be unique, like a domain)
-package.name = timesheet
-package.domain = org.yourname
+# (str) Title of your application
+title = TimesheetApp
 
-# Source code
-source.dir = .
-source.include_exts = py,png,jpg,kv,atlas,db
+# (str) Package name
+package.name = timesheetapp
 
-# Main script
-main.py = timesheet_app.py
+# (str) Package domain (reverse domain name style)
+package.domain = org.grobler
 
-# Icon (optional, add your own PNG)
-icon.filename = %(source.dir)s/icon.png
+# (str) Source code file
+source.include_exts = py,png,jpg,kv,ttf
 
-# Supported orientations
+# (list) Application requirements
+requirements = python3,kivy==2.3.1,fpdf
+
+# (str) Application version
+version = 1.0
+
+# (bool) Include all the files in the project directory
+source.include_patterns = *
+
+# (str) Orientation of the app
 orientation = portrait
 
-# Permissions your app needs
-android.permissions = INTERNET, WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE
-
-# Presplash (loading screen)
+# (bool) Whether the app should start in fullscreen
 fullscreen = 0
 
-# Versioning
-version = 0.1
-numeric_version = 1
-
-# This lets your app run when the screen is off (for your timer!)
-android.service = true
-
+# (str) Icon of the app
+icon.filename = %(source.dir)s/icon.png
 
 [buildozer]
-log_level = 2
-warn_on_root = 1
 
-# Use the latest stable SDK/NDK
-android.api = 34
+# (str) Path to build directory
+build_dir = ./build
+
+# (str) Path to the cache directory
+cache_dir = ~/.buildozer
+
+# (str) Target Android API
+android.api = 33
+
+# (str) Minimum Android API required
+android.minapi = 21
+
+# (str) Android NDK version
 android.ndk = 25b
-android.ndk_api = 21
 
-# Package format (APK for now)
-android.arch = armeabi-v7a
+# (str) Android SDK version
+android.sdk = 33
 
-# Buildozer will put APK here
-bin_dir = bin
+# (str) Presplash image
+presplash.filename = %(source.dir)s/presplash.png
+
